@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolBro - Free Online Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    .tools {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .tools h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .tool-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .tool-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    button {
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+    }
+
+    .calculator {
+      display: none;
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: white;
+    }
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+}
+/* Professional Tool Cards */
+
+.tool-card {
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.tool-card h3 {
+  font-size: 20px;
+}
+
+.tool-card p {
+  min-height: 45px;
+  line-height: 1.5;
+}
+
+/* Better Search Bar */
+
+#toolSearch {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .tools {
+    padding: 15px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator {
+    margin: 25px 15px;
+    padding: 20px;
+  }
+
+}
+.category-title {
+  max-width: 1100px;
+  margin: 35px auto 20px;
+  padding: 0 20px;
+  font-size: 24px;
+}
+
+.calculator-category {
+  margin-top: 50px;
+}
+.dark-btn {
+  background: transparent;
+  border: 1px solid #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Dark Mode */
+
+body.dark-mode {
+  background: #111827;
+  color: #f9fafb;
+}
+
+body.dark-mode .tool-card,
+body.dark-mode .calculator {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+body.dark-mode .tool-card p,
+body.dark-mode .hero p {
+  color: #d1d5db;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background: #374151;
+  color: white;
+  border-color: #4b5563;
+}
+footer {
+  margin-top: 60px;
+  padding: 45px 8% 20px;
+  background: #111827;
+  color: white;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand h2 {
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  color: #d1d5db;
+  max-width: 350px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links h3 {
+  margin-bottom: 5px;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 35px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #374151;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  footer {
+    padding: 35px 20px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">🛠️ ToolBro</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#image-tools">Image Tools</a>
+    <a href="#calculator-tools">Calculators</a>
+    <a href="#about">About</a>
+  </nav>
+<button class="dark-btn" id="themeButton" onclick="toggleDarkMode()">
+  🌙
+</button>
+
+</header>
+<section class="hero" id="home">
+  <h1>Free Online Tools</h1>
+  <p>Simple, fast and useful tools for everyone.</p>
+</section>
+
+<section class="tools" id="tools">
+
+
+  <h2>All Tools</h2>
+
+  <input
+    type="text"
+    id="toolSearch"
+    placeholder="Search tools..."
+    onkeyup="searchTools()"
+  >
+
+  <!-- Image Tools -->
+
+  <h3 class="category-title" id="image-tools">
+  🖼️ Image Tools
+</h3>
+
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <h3>📷 Passport Photo Maker</h3>
+      <p>Create passport-size photos quickly.</p>
+      <button onclick="showCalculator('passport')">
+        Open Tool
+      </button>
+    </div>
+
+    <div class="tool-card">
+     <h3>🗜️ Image Compressor</h3>
+      <p>Compress JPG and PNG images easily.</p>
+      <button onclick="showCalculator('compressor')">
+        Open Tool
+      </button>
+    </div>
+
+    <div class="tool-card">
+      <h3>📐 Image Resizer</h3>
+      <p>Resize images by width and height.</p>
+      <button onclick="showCalculator('resizer')">
+        Open Tool
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- Calculator Tools -->
+
+  <h3 class="category-title calculator-category" id="calculator-tools">
+  🔢 Calculator Tools
+</h3>
+
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <h3>🧮 Percentage Calculator</h3>
+      <p>Calculate percentages quickly.</p>
+      <button onclick="showCalculator('percentage')">
+        Open Tool
+      </button>
+    </div>
+
+    <div class="tool-card">
+      <h3>🎂 Age Calculator</h3>
+      <p>Calculate your exact age.</p>
+      <button onclick="showCalculator('age')">
+        Open Tool
+      </button>
+    </div>
+
+    <div class="tool-card">
+      <h3>💰 EMI Calculator</h3>>
+      <p>Calculate your monthly EMI.</p>
+      <button onclick="showCalculator('emi')">
+        Open Tool
+      </button>
+    </div>
+
+  </div>
+ 
+</section>
+
+<!-- Percentage Calculator -->
+
+<div class="calculator" id="percentage">
+
+  <h2>Percentage Calculator</h2>
+
+  <input type="number" id="number" placeholder="Enter number">
+
+  <input type="number" id="percent" placeholder="Enter percentage">
+
+  <button onclick="calculatePercentage()">
+    Calculate
+  </button>
+
+  <div class="result" id="percentageResult"></div>
+
+</div>
+
+
+<!-- Age Calculator -->
+
+<div class="calculator" id="age">
+
+  <h2>Age Calculator</h2>
+
+  <input type="date" id="birthdate">
+
+  <button onclick="calculateAge()">
+    Calculate Age
+  </button>
+
+  <div class="result" id="ageResult"></div>
+
+</div>
+
+
+<!-- EMI Calculator -->
+
+<div class="calculator" id="emi">
+
+  <h2>EMI Calculator</h2>
+
+  <input type="number" id="loan" placeholder="Loan Amount">
+
+  <input type="number" id="interest" placeholder="Interest Rate (%)">
+
+  <input type="number" id="months" placeholder="Loan Duration (Months)">
+
+  <button onclick="calculateEMI()">
+    Calculate EMI
+  </button>
+
+  <div class="result" id="emiResult"></div>
+
+</div><!-- Image Compressor -->
+
+<div class="calculator" id="compressor">
+
+  <h2>Image Compressor</h2>
+
+  <input type="file" id="imageInput" accept="image/*">
+
+  <label>Image Quality: <span id="qualityValue">70</span>%</label>
+
+  <input
+    type="range"
+    id="quality"
+    min="10"
+    max="100"
+    value="70"
+    oninput="document.getElementById('qualityValue').innerText=this.value"
+  >
+
+  <br><br>
+
+  <button onclick="compressImage()">
+    Compress Image
+  </button>
+
+  <br><br>
+
+  <img
+    id="preview"
+    style="max-width:100%; display:none; border-radius:10px;"
+  >
+
+  <br>
+
+  <a
+    id="downloadLink"
+    style="display:none;"
+  >
+    <button>Download Compressed Image</button>
+  </a>
+
+  <div class="result" id="compressResult"></div>
+
+</div>
+<!-- Image Resizer -->
+
+<div class="calculator" id="resizer">
+
+  <h2>Image Resizer</h2>
+
+  <input
+    type="file"
+    id="resizeImageInput"
+    accept="image/*"
+  >
+
+  <input
+    type="number"
+    id="resizeWidth"
+    placeholder="Enter Width (px)"
+  >
+
+  <input
+    type="number"
+    id="resizeHeight"
+    placeholder="Enter Height (px)"
+  >
+
+  <button onclick="resizeImage()">
+    Resize Image
+  </button>
+
+  <br><br>
+
+  <img
+    id="resizePreview"
+    style="max-width:100%; display:none; border-radius:10px;"
+  >
+
+  <br><br>
+
+  <a
+    id="resizeDownloadLink"
+    style="display:none;"
+  >
+    <button>Download Resized Image</button>
+  </a>
+
+  <div
+    class="result"
+    id="resizeResult"
+  ></div>
+
+</div>
+<!-- Passport Photo Maker -->
+
+<div class="calculator" id="passport">
+
+  <h2>Passport Photo Maker</h2>
+
+  <input
+    type="file"
+    id="passportImageInput"
+    accept="image/*"
+  >
+
+  <label>Select Photo Size</label>
+
+  <select id="passportSize">
+    <option value="35x45">35 × 45 mm</option>
+    <option value="2x2">2 × 2 inch</option>
+  </select>
+<label>Number of Copies</label>
+
+<select id="photoCopies">
+  <option value="1">1 Photo</option>
+  <option value="4">4 Photos</option>
+  <option value="6">6 Photos</option>
+  <option value="8">8 Photos</option>
+</select>
+
+  <br><br>
+
+  <button onclick="createPassportPhoto()">
+    Create Passport Photo
+  </button>
+
+  <br><br>
+
+  <img
+    id="passportPreview"
+    style="max-width:100%; display:none; border-radius:10px;"
+  >
+
+  <br><br>
+
+  <a
+    id="passportDownloadLink"
+    style="display:none;"
+  >
+    <button>Download Passport Photo</button>
+  </a>
+
+  <div
+    class="result"
+    id="passportResult"
+  ></div>
+
+</div>
+<section class="tools" id="about">
+
+  <h2>About ToolBro</h2>
+
+  <div class="tool-card">
+
+    <h3>Free & Easy Online Tools</h3>
+
+    <p>
+      ToolBro provides simple, fast and useful online tools
+      for everyone. Our tools help you work with images,
+      calculations and other everyday tasks easily.
+    </p>
+
+    <p>
+      No complicated steps. Just open a tool and get your
+      work done quickly.
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-brand">
+      <h2>🛠️ ToolBro</h2>
+      <p>Free, fast and easy online tools for everyone.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#image-tools">Image Tools</a>
+      <a href="#calculator-tools">Calculators</a>
+      <a href="#about">About</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 ToolBro. All rights reserved.
+  </div>
+
+</footer>
+
+
+<script>
+
+function showCalculator(id) {
+
+  document.querySelectorAll('.calculator').forEach(function(box) {
+    box.style.display = 'none';
+  });
+
+  document.getElementById(id).style.display = 'block';
+
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+
+function calculatePercentage() {
+
+  let number =
+    document.getElementById("number").value;
+
+  let percent =
+    document.getElementById("percent").value;
+
+  let result =
+    (number * percent) / 100;
+
+  document.getElementById("percentageResult").innerHTML =
+    percent + "% of " + number + " = " + result;
+}
+
+
+function calculateAge() {
+
+  let birthdate =
+    new Date(document.getElementById("birthdate").value);
+
+  let today = new Date();
+
+  let age =
+    today.getFullYear() - birthdate.getFullYear();
+
+  let monthDifference =
+    today.getMonth() - birthdate.getMonth();
+
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 &&
+      today.getDate() < birthdate.getDate())
+  ) {
+    age--;
+  }
+
+  document.getElementById("ageResult").innerHTML =
+    "Your age is " + age + " years";
+}
+
+
+function calculateEMI() {
+
+  let P =
+    Number(document.getElementById("loan").value);
+
+  let annualRate =
+    Number(document.getElementById("interest").value);
+
+  let n =
+    Number(document.getElementById("months").value);
+
+  let r =
+    annualRate / 12 / 100;
+
+  let emi =
+    P * r * Math.pow(1 + r, n) /
+    (Math.pow(1 + r, n) - 1);
+
+  document.getElementById("emiResult").innerHTML =
+    "Monthly EMI: ₹" + emi.toFixed(2);
+}
+function compressImage() {
+
+  const input =
+    document.getElementById("imageInput");
+
+  const file =
+    input.files[0];
+
+  if (!file) {
+    alert("Please select an image");
+    return;
+  }
+
+  const quality =
+    document.getElementById("quality").value / 100;
+
+  const reader =
+    new FileReader();
+
+  reader.readAsDataURL(file);
+
+  reader.onload = function(event) {
+
+    const img =
+      new Image();
+
+    img.src =
+      event.target.result;
+
+    img.onload = function() {
+
+      const canvas =
+        document.createElement("canvas");
+
+      const ctx =
+        canvas.getContext("2d");
+
+      canvas.width =
+        img.width;
+
+      canvas.height =
+        img.height;
+
+      ctx.drawImage(
+        img,
+        0,
+        0
+      );
+
+      canvas.toBlob(
+        function(blob) {
+
+          const compressedURL =
+            URL.createObjectURL(blob);
+
+          const preview =
+            document.getElementById("preview");
+
+          preview.src =
+            compressedURL;
+
+          preview.style.display =
+            "block";
+
+          const downloadLink =
+            document.getElementById("downloadLink");
+
+          downloadLink.href =
+            compressedURL;
+
+          downloadLink.download =
+            "compressed-image.jpg";
+
+          downloadLink.style.display =
+            "inline-block";
+
+          const originalSize =
+            (file.size / 1024).toFixed(2);
+
+          const compressedSize =
+            (blob.size / 1024).toFixed(2);
+
+          document.getElementById(
+            "compressResult"
+          ).innerHTML =
+            "Original: " +
+            originalSize +
+            " KB<br>Compressed: " +
+            compressedSize +
+            " KB";
+
+        },
+        "image/jpeg",
+        quality
+      );
+
+    };
+
+  };
+
+}
+function resizeImage() {
+
+  const input =
+    document.getElementById("resizeImageInput");
+
+  const file =
+    input.files[0];
+
+  const width =
+    Number(document.getElementById("resizeWidth").value);
+
+  const height =
+    Number(document.getElementById("resizeHeight").value);
+
+  if (!file) {
+    alert("Please select an image");
+    return;
+  }
+
+  if (!width || !height) {
+    alert("Please enter width and height");
+    return;
+  }
+
+  const reader =
+    new FileReader();
+
+  reader.readAsDataURL(file);
+
+  reader.onload = function(event) {
+
+    const img =
+      new Image();
+
+    img.src =
+      event.target.result;
+
+    img.onload = function() {
+
+      const canvas =
+        document.createElement("canvas");
+
+      const ctx =
+        canvas.getContext("2d");
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      canvas.toBlob(
+        function(blob) {
+
+          const resizedURL =
+            URL.createObjectURL(blob);
+
+          const preview =
+            document.getElementById("resizePreview");
+
+          preview.src =
+            resizedURL;
+
+          preview.style.display =
+            "block";
+
+          const downloadLink =
+            document.getElementById(
+              "resizeDownloadLink"
+            );
+
+          downloadLink.href =
+            resizedURL;
+
+          downloadLink.download =
+            "resized-image.jpg";
+
+          downloadLink.style.display =
+            "inline-block";
+
+          document.getElementById(
+            "resizeResult"
+          ).innerHTML =
+            "Image resized to " +
+            width + " × " +
+            height + " pixels";
+
+        },
+        "image/jpeg",
+        0.92
+      );
+
+    };
+
+  };
+
+}
+function createPassportPhoto() {
+
+  const input =
+    document.getElementById("passportImageInput");
+
+  const file =
+    input.files[0];
+
+  const size =
+    document.getElementById("passportSize").value;
+
+  const copies =
+    Number(document.getElementById("photoCopies").value);
+
+  if (!file) {
+    alert("Please select a photo");
+    return;
+  }
+
+  let photoWidth;
+  let photoHeight;
+
+  if (size === "35x45") {
+    photoWidth = 413;
+    photoHeight = 531;
+  } else {
+    photoWidth = 600;
+    photoHeight = 600;
+  }
+
+  const gap = 20;
+  let columns;
+
+  if (copies === 1) {
+    columns = 1;
+  } else if (copies === 4) {
+    columns = 2;
+  } else if (copies === 6) {
+    columns = 3;
+  } else {
+    columns = 4;
+  }
+
+  const rows =
+    Math.ceil(copies / columns);
+
+  const canvas =
+    document.createElement("canvas");
+
+  canvas.width =
+    columns * photoWidth +
+    (columns + 1) * gap;
+
+  canvas.height =
+    rows * photoHeight +
+    (rows + 1) * gap;
+
+  const ctx =
+    canvas.getContext("2d");
+
+  ctx.fillStyle = "white";
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  const reader =
+    new FileReader();
+
+  reader.readAsDataURL(file);
+
+  reader.onload = function(event) {
+
+    const img =
+      new Image();
+
+    img.src =
+      event.target.result;
+
+    img.onload = function() {
+
+      const targetRatio =
+        photoWidth / photoHeight;
+
+      const imageRatio =
+        img.width / img.height;
+
+      let sourceWidth;
+      let sourceHeight;
+      let sourceX;
+      let sourceY;
+
+      if (imageRatio > targetRatio) {
+
+        sourceHeight =
+          img.height;
+
+        sourceWidth =
+          img.height * targetRatio;
+
+        sourceX =
+          (img.width - sourceWidth) / 2;
+
+        sourceY = 0;
+
+      } else {
+
+        sourceWidth =
+          img.width;
+
+        sourceHeight =
+          img.width / targetRatio;
+
+        sourceX = 0;
+
+        sourceY =
+          (img.height - sourceHeight) / 2;
+      }
+
+      for (let i = 0; i < copies; i++) {
+
+        const column =
+          i % columns;
+
+        const row =
+          Math.floor(i / columns);
+
+        const x =
+          gap + column *
+          (photoWidth + gap);
+
+        const y =
+          gap + row *
+          (photoHeight + gap);
+
+        ctx.drawImage(
+          img,
+          sourceX,
+          sourceY,
+          sourceWidth,
+          sourceHeight,
+          x,
+          y,
+          photoWidth,
+          photoHeight
+        );
+
+      }
+
+      canvas.toBlob(
+        function(blob) {
+
+          const passportURL =
+            URL.createObjectURL(blob);
+
+          const preview =
+            document.getElementById(
+              "passportPreview"
+            );
+
+          preview.src =
+            passportURL;
+
+          preview.style.display =
+            "block";
+
+          const downloadLink =
+            document.getElementById(
+              "passportDownloadLink"
+            );
+
+          downloadLink.href =
+            passportURL;
+
+          downloadLink.download =
+            "passport-photo-sheet.jpg";
+
+          downloadLink.style.display =
+            "inline-block";
+
+          document.getElementById(
+            "passportResult"
+          ).innerHTML =
+            copies +
+            " passport photos created successfully!";
+
+        },
+        "image/jpeg",
+        0.95
+      );
+
+    };
+
+  };
+
+}
+function searchTools() {
+
+  const searchText =
+    document.getElementById("toolSearch")
+    .value
+    .toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".tool-card");
+
+  cards.forEach(function(card) {
+
+    const toolName =
+      card.innerText.toLowerCase();
+
+    if (toolName.includes(searchText)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+
+  });
+function toggleDarkMode() {
+  const themeButton = document.getElementById("themeButton");
+
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    themeButton.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeButton.textContent = "🌙";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  const themeButton = document.getElementById("themeButton");
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeButton.textContent = "☀️";
+  } else {
+    themeButton.textContent = "🌙";
+  }
+});
+</script>
+<script>
+function toggleDarkMode() {
+  const button = document.getElementById("themeButton");
+
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    button.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    button.textContent = "🌙";
+  }
+}
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+
+  const button = document.getElementById("themeButton");
+
+  if (button) {
+    button.textContent = "☀️";
+  }
+}
+</script>
+
+</body>
+</html>
